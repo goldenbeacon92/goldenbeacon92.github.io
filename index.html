@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>片库网官网-片库网官网首页_片库网官网在线影视资源浏览与影片分类入口</title>
+<meta name="description" content="片库网官网首页，汇集影片分类浏览、热门片单、类型筛选与观影入口说明，帮助访客快速了解片库网官网的资源组织方式与常用入口。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e1720'/%3E%3Crect x='12' y='14' width='40' height='36' rx='6' fill='none' stroke='%23f2b544' stroke-width='3'/%3E%3Cpath d='M12 26h40' stroke='%23f2b544' stroke-width='3'/%3E%3Ccircle cx='20' cy='20' r='2.4' fill='%23f2b544'/%3E%3Ccircle cx='28' cy='20' r='2.4' fill='%23f2b544'/%3E%3Ccircle cx='36' cy='20' r='2.4' fill='%23f2b544'/%3E%3Cpath d='M28 33l12 7-12 7z' fill='%23f2b544'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0e1720;
+  --ink-2:#152230;
+  --paper:#f6f3ec;
+  --gold:#f2b544;
+  --gold-deep:#c98a1e;
+  --text:#1c2733;
+  --muted:#5d6b7a;
+  --line:#dcd5c6;
+  --radius:14px;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;
+  background:var(--paper);
+  color:var(--text);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px;}
+
+/* header */
+header.site{
+  background:var(--ink);
+  color:#f3efe6;
+  position:sticky;
+  top:0;
+  z-index:50;
+  border-bottom:1px solid rgba(242,181,68,.28);
+}
+.head-inner{
+  display:flex;align-items:center;gap:18px;
+  min-height:66px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:.5px;color:#fff;}
+.brand .mark{width:34px;height:34px;flex:0 0 34px;}
+nav.main{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap;}
+nav.main a{
+  padding:7px 12px;border-radius:8px;font-size:14.5px;color:#d8dfe6;transition:.2s;
+}
+nav.main a:hover,nav.main a:focus-visible{background:rgba(242,181,68,.16);color:var(--gold);}
+.head-cta{
+  background:var(--gold);color:#1a1206;font-weight:700;font-size:14px;
+  padding:8px 16px;border-radius:9px;white-space:nowrap;
+}
+.head-cta:hover{background:#ffc85f;}
+
+/* hero */
+.hero{
+  background:
+    radial-gradient(900px 380px at 85% -10%, rgba(242,181,68,.20), transparent 70%),
+    linear-gradient(180deg,#0e1720 0%,#14212e 100%);
+  color:#f2eee5;
+  padding:54px 0 58px;
+  overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:2px;color:var(--gold);
+  border:1px solid rgba(242,181,68,.42);border-radius:999px;
+  padding:4px 13px;margin-bottom:18px;
+}
+h1{
+  font-size:clamp(27px,4vw,42px);
+  line-height:1.25;font-weight:800;letter-spacing:1px;color:#fff;
+}
+.hero p.lead{margin-top:16px;color:#c2ccd6;font-size:15.8px;max-width:34em;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:10px;font-size:15px;font-weight:700;
+  transition:.2s;border:1px solid transparent;
+}
+.btn-gold{background:var(--gold);color:#1a1206;}
+.btn-gold:hover{background:#ffc85f;transform:translateY(-1px);}
+.btn-ghost{border-color:rgba(242,181,68,.55);color:var(--gold);}
+.btn-ghost:hover{background:rgba(242,181,68,.12);}
+.hero-stats{
+  display:flex;gap:26px;margin-top:30px;flex-wrap:wrap;
+  border-top:1px solid rgba(255,255,255,.12);padding-top:20px;
+}
+.hero-stats div strong{display:block;font-size:21px;color:var(--gold);font-weight:800;}
+.hero-stats div span{font-size:12.8px;color:#9fabb8;letter-spacing:.4px;}
+.hero-art{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(242,181,68,.24);
+  border-radius:var(--radius);
+  padding:16px;
+}
+.hero-art figcaption{font-size:12.5px;color:#93a1ae;margin-top:10px;text-align:center;letter-spacing:.5px;}
+
+/* sections */
+section.block{padding:56px 0;}
+section.block.alt{background:#efeade;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.sec-head{max-width:44em;margin-bottom:28px;}
+.sec-head .tag{font-size:12.5px;letter-spacing:2px;color:var(--gold-deep);font-weight:700;}
+.sec-head h2{font-size:clamp(21px,2.6vw,27px);font-weight:800;margin-top:6px;letter-spacing:.5px;}
+.sec-head p{margin-top:10px;color:var(--muted);font-size:15.2px;}
+
+/* search + filter */
+.toolbar{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;
+  box-shadow:0 1px 0 rgba(0,0,0,.02);
+}
+.search-box{display:flex;gap:10px;align-items:center;}
+.search-box input{
+  flex:1;min-width:0;padding:11px 14px;border:1px solid var(--line);border-radius:10px;
+  font-size:15px;background:#fbf9f4;color:var(--text);font-family:inherit;
+}
+.search-box input:focus{outline:2px solid rgba(242,181,68,.6);outline-offset:1px;}
+.chips{display:flex;gap:8px;flex-wrap:wrap;}
+.chip{
+  border:1px solid var(--line);background:#fbf9f4;color:var(--muted);
+  padding:7px 14px;border-radius:999px;font-size:13.5px;cursor:pointer;transition:.18s;font-family:inherit;
+}
+.chip:hover{border-color:var(--gold-deep);color:var(--text);}
+.chip.active{background:var(--ink);color:var(--gold);border-color:var(--ink);}
+.result-note{margin-top:14px;font-size:13.5px;color:var(--muted);}
+.result-note b{color:var(--gold-deep);}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.2s;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 26px -18px rgba(20,33,46,.55);}
+.card .thumb{aspect-ratio:16/9;background:#e7e1d3;position:relative;}
+.card .thumb svg{width:100%;height:100%;}
+.card .badge{
+  position:absolute;left:10px;top:10px;background:rgba(14,23,32,.86);color:var(--gold);
+  font-size:11.5px;padding:3px 9px;border-radius:6px;letter-spacing:.6px;
+}
+.card .body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:7px;flex:1;}
+.card h3{font-size:16.5px;font-weight:700;letter-spacing:.3px;}
+.card p{font-size:13.8px;color:var(--muted);line-height:1.7;}
+.card .meta{margin-top:auto;font-size:12.5px;color:#8a96a3;display:flex;gap:12px;flex-wrap:wrap;padding-top:8px;border-top:1px dashed var(--line);}
+.empty-note{display:none;margin-top:22px;padding:18px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:14px;}
+
+/* two column */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:38px;align-items:start;}
+.prose h2{font-size:clamp(20px,2.4vw,25px);font-weight:800;margin-bottom:14px;}
+.prose p{color:#2b3743;font-size:15.4px;margin-bottom:13px;}
+.prose p strong{color:var(--gold-deep);}
+.list-steps{list-style:none;counter-reset:s;display:grid;gap:14px;}
+.list-steps li{
+  counter-increment:s;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px 14px 54px;position:relative;font-size:14.6px;
+}
+.list-steps li::before{
+  content:counter(s,decimal-leading-zero);
+  position:absolute;left:16px;top:15px;
+  font-weight:800;color:var(--gold-deep);font-size:14px;letter-spacing:1px;
+}
+.list-steps li b{display:block;font-size:15.2px;margin-bottom:3px;}
+.list-steps li span{color:var(--muted);font-size:13.8px;}
+
+/* faq */
+.faq{display:grid;gap:12px;margin-top:6px;}
+details{
+  background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;
+}
+details[open]{border-color:rgba(242,181,68,.8);}
+summary{
+  cursor:pointer;font-weight:700;font-size:15.2px;list-style:none;
+  display:flex;justify-content:space-between;gap:14px;align-items:center;
+}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+";color:var(--gold-deep);font-weight:800;font-size:18px;}
+details[open] summary::after{content:"–";}
+details p{margin-top:10px;color:var(--muted);font-size:14.4px;}
+
+/* download strip */
+.dl-strip{
+  background:linear-gradient(135deg,#13202d,#0e1720);
+  color:#eee8dc;border-radius:18px;padding:30px 28px;
+  display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  border:1px solid rgba(242,181,68,.28);
+}
+.dl-strip h2{font-size:20px;font-weight:800;color:#fff;letter-spacing:.5px;}
+.dl-strip p{font-size:14px;color:#a9b5c1;margin-top:6px;max-width:36em;}
+.btn-dl{
+  background:var(--gold);color:#1a1206;padding:11px 26px;border-radius:10px;
+  font-weight:800;font-size:15px;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-dl[aria-disabled="true"]{opacity:.92;pointer-events:none;cursor:default;}
+
+/* footer */
+footer.site{background:var(--ink);color:#b9c3cd;padding:40px 0 26px;margin-top:8px;}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;}
+.foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:16px;margin-bottom:10px;}
+.foot-brand .mark{width:30px;height:30px;flex:0 0 30px;}
+footer.site p{font-size:13.6px;line-height:1.85;color:#93a1ae;}
+footer.site h4{font-size:13.5px;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;font-weight:700;}
+footer.site ul{list-style:none;display:grid;gap:7px;font-size:13.8px;}
+footer.site a:hover{color:var(--gold);}
+.copy{
+  border-top:1px solid rgba(255,255,255,.1);margin-top:26px;padding-top:16px;
+  font-size:12.6px;color:#7d8b98;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px;}
+  .hero-art{order:-1;max-width:420px;}
+  .cards{grid-template-columns:repeat(2,1fr);}
+  .split{grid-template-columns:1fr;gap:28px;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  body{font-size:15.4px;}
+  .head-inner{min-height:60px;gap:10px;padding:8px 0;}
+  nav.main{order:3;width:100%;margin-left:0;overflow-x:auto;padding-bottom:4px;}
+  nav.main a{padding:6px 10px;font-size:13.6px;white-space:nowrap;}
+  .head-cta{font-size:13px;padding:7px 13px;}
+  .hero{padding:38px 0 42px;}
+  .hero-stats{gap:18px;}
+  .toolbar{grid-template-columns:1fr;}
+  .cards{grid-template-columns:1fr;}
+  section.block{padding:42px 0;}
+  .dl-strip{padding:24px 20px;}
+  .foot-grid{grid-template-columns:1fr;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <a class="brand" href="#top" aria-label="片库网官网 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="3" y="3" width="58" height="58" rx="13" fill="#152230" stroke="#f2b544" stroke-width="2.5"/>
+        <rect x="13" y="15" width="38" height="34" rx="5" fill="none" stroke="#f2b544" stroke-width="2.6"/>
+        <path d="M13 26h38" stroke="#f2b544" stroke-width="2.6"/>
+        <circle cx="20.5" cy="20.5" r="2.2" fill="#f2b544"/>
+        <circle cx="28.5" cy="20.5" r="2.2" fill="#f2b544"/>
+        <circle cx="36.5" cy="20.5" r="2.2" fill="#f2b544"/>
+        <path d="M28 32.5l11 6.5-11 6.5z" fill="#f2b544"/>
+      </svg>
+      <span>片库网官网</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#library">片库分类</a>
+      <a href="#guide">使用路径</a>
+      <a href="#picks">本周片单</a>
+      <a href="#faq">常见问题</a>
+      <a href="#download">客户端下载</a>
+    </nav>
+    <a class="head-cta" href="#library">进入片库</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">影视资源 · 分类浏览</span>
+        <h1>片库网官网</h1>
+        <p class="lead">片库网官网以影片分类为核心组织方式，把电影、剧集、纪录片与动漫按类型、地区和年份归入同一套浏览结构。访客可以先在片库分类中定位方向，再借助搜索与标签筛选缩小范围，最后进入具体影片页面查看简介与播放信息。</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#library">浏览片库分类</a>
+          <a class="btn btn-ghost" href="#guide">了解使用路径</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>6</strong><span>主分类入口</span></div>
+          <div><strong>12</strong><span>内容标签</span></div>
+          <div><strong>4</strong><span>筛选维度</span></div>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <svg viewBox="0 0 400 260" role="img" aria-label="片库网官网分类浏览示意插画">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#1c2c3c"/><stop offset="1" stop-color="#101a24"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="260" rx="12" fill="url(#g1)"/>
+          <rect x="26" y="26" width="120" height="76" rx="8" fill="#1f3244" stroke="#f2b544" stroke-width="2"/>
+          <rect x="34" y="34" width="104" height="42" rx="4" fill="#2b4258"/>
+          <path d="M78 47l18 9-18 9z" fill="#f2b544"/>
+          <rect x="34" y="82" width="60" height="6" rx="3" fill="#40586f"/>
+          <rect x="26" y="116" width="120" height="76" rx="8" fill="#1a2a39" stroke="#3a5064" stroke-width="2"/>
+          <rect x="34" y="124" width="104" height="42" rx="4" fill="#25394b"/>
+          <rect x="34" y="172" width="72" height="6" rx="3" fill="#3a5064"/>
+          <rect x="26" y="206" width="120" height="30" rx="8" fill="#1a2a39" stroke="#3a5064" stroke-width="2"/>
+          <rect x="36" y="216" width="70" height="9" rx="4" fill="#334b60"/>
+          <rect x="166" y="26" width="208" height="32" rx="8" fill="#1f3244" stroke="#3a5064" stroke-width="2"/>
+          <circle cx="184" cy="42" r="6" fill="none" stroke="#f2b544" stroke-width="2"/>
+          <path d="M188 46l6 6" stroke="#f2b544" stroke-width="2" stroke-linecap="round"/>
+          <rect x="202" y="38" width="120" height="8" rx="4" fill="#40586f"/>
+          <rect x="166" y="70" width="208" height="74" rx="8" fill="#1f3244" stroke="#f2b544" stroke-width="2"/>
+          <rect x="176" y="80" width="88" height="54" rx="5" fill="#2b4258"/>
+          <path d="M208 96l16 8-16 8z" fill="#f2b544"/>
+          <rect x="274" y="80" width="90" height="8" rx="4" fill="#4a6279"/>
+          <rect x="274" y="94" width="72" height="7" rx="3.5" fill="#3a5064"/>
+          <rect x="274" y="107" width="82" height="7" rx="3.5" fill="#3a5064"/>
+          <rect x="274" y="120" width="54" height="7" rx="3.5" fill="#334b60"/>
+          <rect x="166" y="156" width="208" height="80" rx="8" fill="#1a2a39" stroke="#3a5064" stroke-width="2"/>
+          <rect x="178" y="168" width="56" height="56" rx="6" fill="#25394b"/>
+          <rect x="244" y="168" width="56" height="56" rx="6" fill="#25394b"/>
+          <rect x="310" y="168" width="52" height="56" rx="6" fill="#25394b"/>
+          <rect x="184" y="192" width="44" height="6" rx="3" fill="#40586f"/>
+          <rect x="250" y="192" width="44" height="6" rx="3" fill="#40586f"/>
+          <rect x="316" y="192" width="40" height="6" rx="3" fill="#40586f"/>
+        </svg>
+        <figcaption>分类、检索与片单并列的浏览结构</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- LIBRARY -->
+  <section class="block" id="library">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">片库分类</span>
+        <h2>按类型、地区与年份逐层缩小范围</h2>
+        <p>片库网官网的浏览主线是分类而非榜单。类型决定内容基调，地区与年份用于排除不相关结果，关键词搜索则适合已有明确目标的访客。以下筛选控件在页面内即时生效，可与上方片库分类卡片配合使用。</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <input id="q" type="search" placeholder="输入片名或类型关键词，例如：悬疑、纪录片" aria-label="搜索片库分类内容">
+          <button class="chip active" id="resetBtn" type="button">重置</button>
+        </div>
+        <div class="chips" id="typeChips" role="group" aria-label="类型筛选">
+          <button class="chip active" type="button" data-type="all">全部</button>
+          <button class="chip" type="button" data-type="电影">电影</button>
+          <button class="chip" type="button" data-type="剧集">剧集</button>
+          <button class="chip" type="button" data-type="纪录片">纪录片</button>
+          <button class="chip" type="button" data-type="动漫">动漫</button>
+        </div>
+      </div>
+      <p class="result-note" id="note">当前显示 <b id="count">6</b> 个分类入口，覆盖片库网官网的主要浏览方向。</p>
+
+      <div class="cards" id="cards">
+        <article class="card" data-type="电影" data-k="电影 剧情 悬疑 犯罪">
+          <div class="thumb">
+            <span class="badge">电影</span>
+            <svg viewBox="0 0 320 180" aria-hidden="true"><rect width="320" height="180" fill="#22384c"/><rect x="30" y="34" width="120" height="76" rx="6" fill="#2f4c64"/><path d="M74 58l20 11-20 11z" fill="#f2b544"/><rect x="168" y="40" width="122" height="9" rx="4.5" fill="#4c6a84"/><rect x="168" y="58" width="96" height="8" rx="4" fill="#3f5b73"/><rect x="168" y="74" width="110" height="8" rx="4" fill="#3f5b73"/><rect x="168" y="90" width="72" height="8" rx="4" fill="#35506a"/><rect x="30" y="128" width="260" height="8" rx="4" fill="#3a566e"/></svg>
+          </div>
+          <div class="body">
+            <h3>剧情与悬疑片</h3>
+            <p>以叙事结构见长的影片集合，适合按年代或地区二次筛选后集中浏览。</p>
+            <div class="meta"><span>电影</span><span>剧情 / 悬疑</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="剧集" data-k="剧集 连续剧 都市 年代">
+          <div class="thumb">
+            <span class="badge">剧集</span>
+            <svg viewBox="0 0 320 180" aria-hidden="true"><rect width="320" height="180" fill="#25333f"/><rect x="26" y="30" width="126" height="84" rx="6" fill="#35495a"/><rect x="36" y="42" width="106" height="56" rx="4" fill="#263845"/><path d="M80 58l18 9-18 9z" fill="#f2b544"/><rect x="170" y="34" width="124" height="80" rx="6" fill="#2d4152"/><rect x="180" y="48" width="104" height="8" rx="4" fill="#4a6276"/><rect x="180" y="64" width="86" height="8" rx="4" fill="#3d5568"/><rect x="180" y="80" width="96" height="8" rx="4" fill="#3d5568"/><rect x="26" y="132" width="268" height="8" rx="4" fill="#3a4f61"/></svg>
+          </div>
+          <div class="body">
+            <h3>连续剧集</h3>
+            <p>按季与集组织的长线内容，都市、年代等题材可结合年份筛选快速定位。</p>
+            <div class="meta"><span>剧集</span><span>都市 / 年代</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="纪录片" data-k="纪录片 自然 人文 历史">
+          <div class="thumb">
+            <span class="badge">纪录片</span>
+            <svg viewBox="0 0 320 180" aria-hidden="true"><rect width="320" height="180" fill="#1f3327"/><circle cx="86" cy="70" r="30" fill="none" stroke="#f2b544" stroke-width="3"/><path d="M66 96l-16 30h72l-16-30z" fill="#2f5a3e"/><path d="M40 132h140" stroke="#4a7a58" stroke-width="3"/><rect x="188" y="44" width="106" height="10" rx="5" fill="#3f6b4c"/><rect x="188" y="64" width="84" height="9" rx="4.5" fill="#355c41"/><rect x="188" y="82" width="96" height="9" rx="4.5" fill="#355c41"/><rect x="188" y="100" width="62" height="9" rx="4.5" fill="#2d5039"/></svg>
+          </div>
+          <div class="body">
+            <h3>纪录片专区</h3>
+            <p>自然、人文与历史方向的长片与系列，适合按主题标签而非热度浏览。</p>
+            <div class="meta"><span>纪录片</span><span>自然 / 人文</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="动漫" data-k="动漫 动画 剧场版 番剧">
+          <div class="thumb">
+            <span class="badge">动漫</span>
+            <svg viewBox="0 0 320 180" aria-hidden="true"><rect width="320" height="180" fill="#2a2340"/><circle cx="84" cy="76" r="34" fill="#3d3560"/><circle cx="72" cy="70" r="6" fill="#f2b544"/><circle cx="96" cy="70" r="6" fill="#f2b544"/><path d="M72 92q12 10 24 0" stroke="#f2b544" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="188" y="40" width="106" height="10" rx="5" fill="#4f4580"/><rect x="188" y="60" width="82" height="9" rx="4.5" fill="#453c70"/><rect x="188" y="78" width="94" height="9" rx="4.5" fill="#453c70"/><rect x="40" y="132" width="240" height="8" rx="4" fill="#443a6e"/></svg>
+          </div>
+          <div class="body">
+            <h3>动画与番剧</h3>
+            <p>剧场版与连载番剧分列展示，可按季度或题材标签查看更新方向。</p>
+            <div class="meta"><span>动漫</span><span>番剧 / 剧场版</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="电影" data-k="电影 喜剧 爱情 家庭">
+          <div class="thumb">
+            <span class="badge">电影</span>
+            <svg viewBox="0 0 320 180" aria-hidden="true"><rect width="320" height="180" fill="#3a2a1d"/><rect x="28" y="32" width="128" height="82" rx="6" fill="#5a412a"/><circle cx="76" cy="66" r="14" fill="#f2b544"/><path d="M56 100q20-22 40 0z" fill="#f2b544"/><rect x="172" y="38" width="120" height="9" rx="4.5" fill="#6b4f33"/><rect x="172" y="56" width="96" height="8" rx="4" fill="#5d4429"/><rect x="172" y="74" width="108" height="8" rx="4" fill="#5d4429"/><rect x="28" y="130" width="264" height="8" rx="4" fill="#5a412a"/></svg>
+          </div>
+          <div class="body">
+            <h3>喜剧与家庭</h3>
+            <p>轻松向影片集合，适合不确定看什么时按地区或年代逐步放宽条件。</p>
+            <div class="meta"><span>电影</span><span>喜剧 / 家庭</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-type="剧集" data-k="剧集 悬疑 罪案 短剧">
+          <div class="thumb">
+            <span class="badge">剧集</span>
+            <svg viewBox="0 0 320 180" aria-hidden="true"><rect width="320" height="180" fill="#1b2733"/><rect x="30" y="34" width="118" height="76" rx="6" fill="#2a3b4c"/><circle cx="72" cy="66" r="16" fill="none" stroke="#f2b544" stroke-width="3"/><path d="M84 78l14 14" stroke="#f2b544" stroke-width="3" stroke-linecap="round"/><rect x="168" y="40" width="122" height="9" rx="4.5" fill="#3f5669"/><rect x="168" y="58" width="98" height="8" rx="4" fill="#374c5e"/><rect x="168" y="76" width="110" height="8" rx="4" fill="#374c5e"/><rect x="30" y="126" width="260" height="8" rx="4" fill="#33475a"/></svg>
+          </div>
+          <div class="body">
+            <h3>悬疑短剧</h3>
+            <p>集数较少的罪案与悬疑剧集，适合按单季完整浏览，减少中途弃看。</p>
+            <div class="meta"><span>剧集</span><span>悬疑 / 罪案</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="empty-note" id="empty">没有匹配的分类入口，请更换关键词或切换类型标签。</p>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="block alt" id="guide">
+    <div class="wrap split">
+      <div class="prose">
+        <h2>从进入片库到打开影片的完整路径</h2>
+        <p>片库网官网的页面结构围绕“先分类、再筛选、后选择”展开。第一次访问时不必急着搜索，先确认自己想看的是哪一类内容，能明显减少翻找时间。<strong>类型是起点，年份与地区是收敛条件</strong>，片名搜索更适合已经知道目标的情况。</p>
+        <p>影片详情页通常承担三件事：说明内容题材与基本信息、提示可用的播放线路、提供同类影片入口。片库网官网把这些信息放在同一页面内，避免在多个页面之间反复跳转。若只想快速判断是否值得看，简介与标签通常已足够。</p>
+        <p>片单区与分类区承担不同任务。分类区回答“有哪些方向”，片单区回答“现在可以从哪里开始”。两者结合，能让片库网官网的浏览过程既有范围又有落点。</p>
+      </div>
+      <ol class="list-steps">
+        <li><b>确定内容方向</b><span>先在片库分类中选择电影、剧集、纪录片或动漫，避免在全量内容中盲目浏览。</span></li>
+        <li><b>叠加筛选条件</b><span>用类型标签配合地区、年份排除不相关内容，逐步收窄到十几部可选影片。</span></li>
+        <li><b>查看详情信息</b><span>进入具体页面确认题材、简介与播放线路，再决定是否继续观看。</span></li>
+        <li><b>回看与延伸</b><span>通过同类型或同地区入口继续查找，形成稳定的个人观影路径。</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PICKS -->
+  <section class="block" id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">本周片单</span>
+        <h2>按观看场景组织的四个片单方向</h2>
+        <p>片单不追求覆盖全部内容，而是给出可执行的起点。每个方向对应一种常见观看需求，进入分类区后可继续按年份与地区调整。</p>
+      </div>
+      <div class="split">
+        <div class="prose">
+          <h3 style="font-size:17px;font-weight:800;margin-bottom:10px;">短时观看与长线追更</h3>
+          <p>时间有限时，优先选择单集时长较短或已完结的剧集，避免因更新节奏中断观看。片库网官网的分类标签中，完结状态与集数信息可以作为判断依据。若打算连续多晚观看，长线剧集更适合按季浏览，先看第一季评价再决定是否继续。</p>
+          <p>片单区展示的四个方向分别对应：通勤碎片时间、周末整块时间、家庭共同观看、以及需要安静环境的内容。它们只是入口，不是排他推荐，实际选择仍以分类结果为准。</p>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>通勤与碎片时间看什么</summary>
+            <p>优先选择单集 20–30 分钟的剧集或短片合集，按集浏览，不依赖连续剧情承接。</p>
+          </details>
+          <details>
+            <summary>周末整块时间如何安排</summary>
+            <p>选择时长较长的电影或已完结剧集，提前确认总集数，避免中途等待更新。</p>
+          </details>
+          <details>
+            <summary>家庭共同观看的筛选思路</summary>
+            <p>以家庭、喜剧、自然纪录片为主，先看简介与分级提示，再决定播放线路。</p>
+          </details>
+          <details>
+            <summary>片单与分类结果不一致怎么办</summary>
+            <p>片单只提供起点。以分类区的筛选结果为准，片单中的方向可忽略。</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block alt" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">常见问题</span>
+        <h2>关于片库网官网的访问与使用</h2>
+        <p>以下问题来自分类浏览与详情页使用中的常见疑问，回答以页面当前呈现的功能范围为限。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>片库网官网的主要内容组织方式是什么？</summary>
+          <p>以影片分类为主干，分为电影、剧集、纪录片与动漫四大方向，再按类型、地区与年份细分。片单与搜索是辅助入口。</p>
+        </details>
+        <details>
+          <summary>不知道看什么时应该从哪里开始？</summary>
+          <p>先进入片库分类，选择一个大方向，再用类型标签收窄。若仍无目标，可参考本周片单的四个观看场景。</p>
+        </details>
+        <details>
+          <summary>搜索和分类筛选有什么区别？</summary>
+          <p>搜索适合已知道片名或明确关键词的情况；分类筛选适合只有大致偏好、需要浏览比较的情况。两者可以配合使用。</p>
+        </details>
+        <details>
+          <summary>页面上的分类卡片和片单会持续更新吗？</summary>
+          <p>分类结构相对稳定，片单方向会随内容调整。具体以当前页面显示的入口与标签为准。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="block" id="download">
+    <div class="wrap">
+      <div class="dl-strip">
+        <div>
+          <h2>片库网官网客户端</h2>
+          <p>客户端提供分类浏览、片单查看与播放记录入口，方便在移动设备上继续未完成的观看。下载按钮将在文件就绪后开放。</p>
+        </div>
+        <a class="btn-dl" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0l-4-4m4 4l4-4M4 19h16" stroke="#1a1206" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="3" y="3" width="58" height="58" rx="13" fill="#152230" stroke="#f2b544" stroke-width="2.5"/>
+            <rect x="13" y="15" width="38" height="34" rx="5" fill="none" stroke="#f2b544" stroke-width="2.6"/>
+            <path d="M13 26h38" stroke="#f2b544" stroke-width="2.6"/>
+            <path d="M28 32.5l11 6.5-11 6.5z" fill="#f2b544"/>
+          </svg>
+          <span>片库网官网</span>
+        </div>
+        <p>片库网官网以分类浏览为主线，提供电影、剧集、纪录片与动漫的内容入口，并通过片单与搜索帮助访客快速定位想看的影片。</p>
+      </div>
+      <div>
+        <h4>内容入口</h4>
+        <ul>
+          <li><a href="#library">片库分类</a></li>
+          <li><a href="#picks">本周片单</a></li>
+          <li><a href="#guide">使用路径</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>站点说明</h4>
+        <ul>
+          <li><a href="#download">客户端下载</a></li>
+          <li><a href="#top">返回顶部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>片库网官网 · 分类浏览与影片入口</span>
+      <span>页面信息以当前展示的分类与片单为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('q');
+  var chips = Array.prototype.slice.call(document.querySelectorAll('#typeChips .chip'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#cards .card'));
+  var note = document.getElementById('note');
+  var countEl = document.getElementById('count');
+  var empty = document.getElementById('empty');
+  var reset = document.getElementById('resetBtn');
+  var activeType = 'all';
+
+  function apply(){
+    var q = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card){
+      var type = card.getAttribute('data-type') || '';
+      var k = (card.getAttribute('data-k') || '').toLowerCase();
+      var text = card.textContent.toLowerCase();
+      var typeOk = activeType === 'all' || type === activeType;
+      var qOk = !q || k.indexOf(q) !== -1 || text.indexOf(q) !== -1;
+      var ok = typeOk && qOk;
+      card.style.display = ok ? '' : 'none';
+      if(ok) shown++;
+    });
+    countEl.textContent = shown;
+    empty.style.display = shown === 0 ? 'block' : 'none';
+    note.style.display = 'block';
+  }
+
+  chips.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      chips.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeType = btn.getAttribute('data-type');
+      apply();
+    });
+  });
+
+  input.addEventListener('input', apply);
+  reset.addEventListener('click', function(){
+    input.value = '';
+    activeType = 'all';
+    chips.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-type') === 'all'); });
+    apply();
+  });
+
+  apply();
+})();
+</script>
+</body>
+          </html>
