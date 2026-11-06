@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>韩剧tv网页版-韩剧tv网页版在线观看_韩剧tv网页版网页入口</title>
+<meta name="description" content="韩剧tv网页版是一个面向韩剧爱好者的网页观看导航页，集中介绍韩剧tv网页版的观看入口、剧集分类、使用方式与常见问题，帮助你在浏览器里快速找到想看的内容。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23111a2e'/><rect x='12' y='18' width='40' height='28' rx='5' fill='none' stroke='%23ff5c8a' stroke-width='4'/><path d='M27 25l14 7-14 7z' fill='%23ffd166'/></svg>">
+<style>
+  :root{
+    --ink:#141a26;
+    --ink-soft:#39424f;
+    --muted:#6a7383;
+    --paper:#f6f4ef;
+    --card:#ffffff;
+    --line:#e4e0d7;
+    --accent:#e8395f;
+    --accent-soft:#ffe6ec;
+    --deep:#111a2e;
+    --gold:#f2b94b;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 22px}
+
+  /* 页头 */
+  header.site{
+    background:var(--deep);
+    color:#fff;
+    position:sticky;
+    top:0;
+    z-index:20;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .head-row{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px;font-size:1.06rem}
+  .brand .mark{width:34px;height:34px;flex:0 0 auto}
+  nav.main ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+  nav.main a{font-size:.94rem;color:#cfd6e2;padding:4px 0;border-bottom:2px solid transparent;transition:.2s}
+  nav.main a:hover,nav.main a:focus{color:#fff;border-bottom-color:var(--accent)}
+
+  /* 首屏 */
+  .hero{
+    background:linear-gradient(160deg,#111a2e 0%,#1d2a45 58%,#2b1c33 100%);
+    color:#fff;
+    padding:54px 0 58px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-90px;top:-70px;
+    width:340px;height:340px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(232,57,95,.42),transparent 67%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;position:relative;z-index:2}
+  .kicker{
+    display:inline-block;
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);
+    color:#ffd9e2;
+    font-size:.8rem;
+    letter-spacing:1.6px;
+    padding:4px 12px;
+    border-radius:999px;
+    margin-bottom:16px;
+  }
+  h1{
+    font-size:clamp(1.7rem,4.2vw,2.65rem);
+    line-height:1.28;
+    margin:0 0 16px;
+    font-weight:800;
+    letter-spacing:.5px;
+  }
+  .hero p.lead{color:#c9d2e2;font-size:1rem;margin:0 0 24px;max-width:36em}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border-radius:10px;
+    font-size:.95rem;font-weight:600;
+    transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:#c72a4d}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+  .hero-side{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:16px;
+    padding:20px 22px;
+  }
+  .hero-side h2{font-size:.9rem;letter-spacing:1.2px;color:#ffd9e2;margin:0 0 14px;font-weight:600}
+  .hero-side ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+  .hero-side li{display:flex;justify-content:space-between;gap:12px;font-size:.9rem;color:#d7deea;border-bottom:1px dashed rgba(255,255,255,.12);padding-bottom:10px}
+  .hero-side li:last-child{border-bottom:0;padding-bottom:0}
+  .hero-side .tag{color:var(--gold);font-size:.82rem;white-space:nowrap}
+
+  /* 通用区块 */
+  section{padding:52px 0}
+  .sec-head{margin-bottom:26px;max-width:44em}
+  .sec-head .eyebrow{
+    color:var(--accent);
+    font-size:.8rem;
+    letter-spacing:2px;
+    font-weight:700;
+    margin:0 0 8px;
+  }
+  .sec-head h2{
+    font-size:clamp(1.28rem,2.6vw,1.6rem);
+    margin:0 0 10px;
+    line-height:1.4;
+    font-weight:800;
+  }
+  .sec-head p{margin:0;color:var(--muted);font-size:.96rem}
+
+  /* 分类卡片 */
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:18px}
+  .cat-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px 20px 18px;
+    transition:.22s;
+  }
+  .cat-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(20,26,38,.08);border-color:#d7cfc1}
+  .cat-card .ico{
+    width:40px;height:40px;border-radius:10px;
+    background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:12px;
+  }
+  .cat-card h3{margin:0 0 6px;font-size:1.02rem;font-weight:700}
+  .cat-card p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.7}
+
+  /* 筛选与片单 */
+  .filter-bar{
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    margin-bottom:22px;
+  }
+  .chip{
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink-soft);
+    padding:7px 16px;
+    border-radius:999px;
+    font-size:.88rem;
+    cursor:pointer;
+    transition:.18s;
+    font-family:inherit;
+  }
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+  .chip.active{background:var(--deep);color:#fff;border-color:var(--deep)}
+  .list-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .card .meta{font-size:.78rem;color:var(--accent);letter-spacing:1px;font-weight:700}
+  .card h3{margin:0;font-size:1.04rem;font-weight:700}
+  .card p{margin:0;font-size:.9rem;color:var(--muted)}
+  .card .line{height:1px;background:var(--line);margin:6px 0}
+  .card .foot{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted)}
+  .empty{
+    display:none;
+    border:1px dashed var(--line);
+    border-radius:12px;
+    padding:26px;
+    text-align:center;
+    color:var(--muted);
+    font-size:.94rem;
+    background:#fff;
+  }
+
+  /* 使用说明 */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;counter-reset:step}
+  .step{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:22px 20px;position:relative;
+  }
+  .step::before{
+    counter-increment:step;
+    content:"0" counter(step);
+    font-size:1.5rem;font-weight:800;color:var(--accent-soft);
+    display:block;margin-bottom:6px;
+    -webkit-text-stroke:1px #f6c3cf;
+  }
+  .step h3{margin:0 0 6px;font-size:1rem}
+  .step p{margin:0;font-size:.9rem;color:var(--muted)}
+
+  /* 正文与问答 */
+  .two-col{display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:start}
+  article.body p{margin:0 0 16px;color:var(--ink-soft);font-size:.97rem}
+  article.body h3{font-size:1.05rem;margin:24px 0 8px;font-weight:700}
+  .aside-box{
+    background:var(--deep);color:#dbe2ee;border-radius:16px;padding:24px 22px;
+  }
+  .aside-box h3{color:#fff;font-size:1rem;margin:0 0 10px}
+  .aside-box p{margin:0 0 14px;font-size:.88rem;color:#b9c3d4;line-height:1.75}
+  .aside-box ul{margin:0;padding-left:18px;font-size:.88rem;color:#b9c3d4;display:grid;gap:6px}
+  .aside-box .btn{margin-top:16px;background:var(--accent);color:#fff;width:100%;justify-content:center}
+
+  .faq{display:grid;gap:12px;max-width:900px}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;
+  }
+  details summary{
+    cursor:pointer;font-weight:700;font-size:.98rem;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";color:var(--accent);font-weight:700;font-size:1.15rem;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin:12px 0 0;font-size:.92rem;color:var(--muted)}
+
+  /* 下载区 */
+  .download-band{
+    background:linear-gradient(120deg,#1d2a45,#111a2e);
+    color:#fff;border-radius:18px;padding:34px 30px;
+    display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .download-band h2{margin:0 0 8px;font-size:1.25rem}
+  .download-band p{margin:0;color:#b9c3d4;font-size:.92rem;max-width:40em}
+  .btn-disabled{
+    background:rgba(255,255,255,.14);
+    color:#e8edf5;
+    border:1px solid rgba(255,255,255,.24);
+    pointer-events:none;
+  }
+
+  /* 页尾 */
+  footer.site{
+    background:var(--deep);color:#9fabc0;padding:38px 0 30px;margin-top:20px;
+    font-size:.87rem;
+  }
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px;margin-bottom:26px}
+  footer.site h4{color:#fff;font-size:.92rem;margin:0 0 12px;letter-spacing:.6px}
+  footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  footer.site a:hover{color:#fff}
+  .foot-brand{display:flex;align-items:center;gap:9px;color:#fff;font-weight:700;margin-bottom:10px}
+  .foot-brand svg{width:26px;height:26px}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.82rem;color:#7e8ba1}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:28px}
+    .two-col{grid-template-columns:1fr;gap:28px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    body{font-size:15px}
+    section{padding:40px 0}
+    .head-row{padding:12px 0}
+    nav.main ul{gap:14px}
+    nav.main a{font-size:.86rem}
+    .hero{padding:38px 0 42px}
+    .btn{width:100%;justify-content:center}
+    .cta-row{flex-direction:column}
+    .foot-grid{grid-template-columns:1fr}
+    .download-band{padding:26px 20px}
+    .aside-box .btn{width:100%}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap head-row">
+    <a class="brand" href="#top" aria-label="韩剧tv网页版 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1d2a45"/>
+        <rect x="11" y="18" width="42" height="28" rx="5" fill="none" stroke="#ff5c8a" stroke-width="4"/>
+        <path d="M27 25l14 7-14 7z" fill="#f2b94b"/>
+      </svg>
+      <span>韩剧tv网页版</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <ul>
+        <li><a href="#categories">剧集分类</a></li>
+        <li><a href="#playlist">热播片单</a></li>
+        <li><a href="#howto">观看方式</a></li>
+        <li><a href="#faq">常见问题</a></li>
+        <li><a href="#download">客户端</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">浏览器直接打开 · 无需安装</span>
+        <h1>韩剧tv网页版</h1>
+        <p class="lead">韩剧tv网页版把韩剧剧集按题材、年份与热度归到一起，打开浏览器就能浏览片单、查看简介并进入播放页面。这一页整理的是使用韩剧tv网页版时最常需要的入口、分类与操作说明。</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#playlist">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2l10 6-10 6z" fill="currentColor"/></svg>
+            浏览热播片单
+          </a>
+          <a class="btn btn-ghost" href="#howto">了解观看方式</a>
+        </div>
+      </div>
+      <aside class="hero-side" aria-label="页面速览">
+        <h2>韩剧TV网页版 · 页面速览</h2>
+        <ul>
+          <li><span>使用方式</span><span class="tag">网页直接访问</span></li>
+          <li><span>主要内容</span><span class="tag">韩剧剧集</span></li>
+          <li><span>分类维度</span><span class="tag">题材 / 年份</span></li>
+          <li><span>适配设备</span><span class="tag">电脑 · 手机</span></li>
+          <li><span>是否需要登录</span><span class="tag">视站点而定</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <!-- 分类 -->
+  <section id="categories">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">剧集分类</p>
+        <h2>先在韩剧tv网页版里找准方向</h2>
+        <p>韩剧题材跨度大，从爱情、悬疑到家庭日常各有受众。下面几类是按常见观看偏好划分的入口，方便你在韩剧tv网页版上缩小范围。</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8395f" stroke-width="2"><path d="M12 20s-7-4.4-7-9a4 4 0 017-2.6A4 4 0 0119 11c0 4.6-7 9-7 9z"/></svg>
+          </div>
+          <h3>爱情与都市</h3>
+          <p>以恋爱线和职场生活为主线的剧集，节奏轻快，适合想放松时打开一集。</p>
+        </div>
+        <div class="cat-card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8395f" stroke-width="2"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg>
+          </div>
+          <h3>悬疑与犯罪</h3>
+          <p>案件推进与反转较为密集，通常需要连续观看，适合一次追完一个单元。</p>
+        </div>
+        <div class="cat-card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8395f" stroke-width="2"><path d="M4 19V8l8-4 8 4v11"/><path d="M9 19v-5h6v5"/></svg>
+          </div>
+          <h3>家庭与生活</h3>
+          <p>围绕亲情、邻里和日常琐事展开，篇幅往往较长，适合慢慢跟着看。</p>
+        </div>
+        <div class="cat-card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8395f" stroke-width="2"><path d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8z"/></svg>
+          </div>
+          <h3>古装与奇幻</h3>
+          <p>历史背景或架空设定下的故事，服装与场景是主要看点，适合按系列浏览。</p>
+        </div>
+        <div class="cat-card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8395f" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M10 10l5 2-5 2z"/></svg>
+          </div>
+          <h3>综艺与短剧</h3>
+          <p>单集时长较短的节目与迷你剧，适合碎片时间，在韩剧tv网页版上也能直接找到。</p>
+        </div>
+        <div class="cat-card">
+          <div class="ico" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#e8395f" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>新剧与更新</h3>
+          <p>按上线时间排列的近期剧集，想知道韩剧tv网页版最近有什么可看，从这里开始。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 片单 + 筛选 -->
+  <section id="playlist" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">热播片单</p>
+        <h2>韩剧tv网页版上的常见观看类型</h2>
+        <p>下面按类型整理了几组代表性方向，点击标签即可筛选。片单只做类型举例，具体剧集以韩剧tv网页版站内实际收录为准。</p>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="按类型筛选片单">
+        <button class="chip active" data-filter="all" type="button">全部</button>
+        <button class="chip" data-filter="romance" type="button">爱情</button>
+        <button class="chip" data-filter="thriller" type="button">悬疑</button>
+        <button class="chip" data-filter="family" type="button">家庭</button>
+        <button class="chip" data-filter="costume" type="button">古装</button>
+      </div>
+
+      <div class="list-grid" id="cards">
+        <div class="card" data-cat="romance">
+          <span class="meta">爱情 · 都市</span>
+          <h3>双向奔赴的都市恋爱</h3>
+          <p>男女主角从误会到靠近，职场线穿插其中，节奏轻松。适合下班后连看两集。</p>
+          <div class="line"></div>
+          <div class="foot"><span>单集约 60 分钟</span><span>适合轻松观看</span></div>
+        </div>
+        <div class="card" data-cat="thriller">
+          <span class="meta">悬疑 · 犯罪</span>
+          <h3>连环案件追查线</h3>
+          <p>以检察官或刑警视角展开，每集推进一条线索，结尾常留钩子，适合整季连着看。</p>
+          <div class="line"></div>
+          <div class="foot"><span>单集约 65 分钟</span><span>建议连续观看</span></div>
+        </div>
+        <div class="card" data-cat="family">
+          <span class="meta">家庭 · 生活</span>
+          <h3>三代同堂的日常</h3>
+          <p>围绕一个家庭的琐碎与和解展开，人物多、线索长，适合当作陪伴型剧集慢慢追。</p>
+          <div class="line"></div>
+          <div class="foot"><span>集数较多</span><span>适合长线追剧</span></div>
+        </div>
+        <div class="card" data-cat="costume">
+          <span class="meta">古装 · 奇幻</span>
+          <h3>架空王朝的权谋与情义</h3>
+          <p>服装与场景考究，剧情多在权力关系上做文章，适合喜欢设定感的观众。</p>
+          <div class="line"></div>
+          <div class="foot"><span>单集约 70 分钟</span><span>建议按顺序看</span></div>
+        </div>
+        <div class="card" data-cat="romance">
+          <span class="meta">爱情 · 治愈</span>
+          <h3>小镇慢节奏爱情</h3>
+          <p>场景集中在海边小镇，冲突不多，更多是生活细节和情绪变化，适合睡前看一集。</p>
+          <div class="line"></div>
+          <div class="foot"><span>单集约 55 分钟</span><span>适合睡前观看</span></div>
+        </div>
+        <div class="card" data-cat="thriller">
+          <span class="meta">悬疑 · 反转</span>
+          <h3>身份错位的谜题</h3>
+          <p>主角记忆与现实冲突，剧情靠信息差推进，途中容易漏细节，建议不倍速。</p>
+          <div class="line"></div>
+          <div class="foot"><span>单集约 60 分钟</span><span>注意剧情细节</span></div>
+        </div>
+      </div>
+      <p class="empty" id="emptyTip">这个分类下暂时没有示例条目，可以切回“全部”再看看。</p>
+    </div>
+  </section>
+
+  <!-- 如何使用 -->
+  <section id="howto">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">观看方式</p>
+        <h2>怎么在浏览器里用韩剧tv网页版</h2>
+        <p>网页版的核心优势是不用装应用。下面三步是多数人打开韩剧tv网页版后的实际操作顺序。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h3>打开网页入口</h3>
+          <p>在电脑或手机浏览器地址栏输入韩剧tv网页版的访问地址，进入站点首页。建议把地址加入书签，下次直接点开。</p>
+        </div>
+        <div class="step">
+          <h3>按分类找剧</h3>
+          <p>首页通常有题材、地区、年份等分类。先选大类，再用列表翻页或站内搜索缩小范围，比在首页一直往下翻更省时间。</p>
+        </div>
+        <div class="step">
+          <h3>进入剧集页观看</h3>
+          <p>点开具体剧集后能看到简介和分集列表，选择集数即可播放。播放器清晰度、是否需登录以站点实际设置为准。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 正文 + 侧栏 -->
+  <section style="background:#fff;border-top:1px solid var(--line);">
+    <div class="wrap two-col">
+      <article class="body">
+        <div class="sec-head" style="margin-bottom:18px">
+          <p class="eyebrow">使用说明</p>
+          <h2>关于韩剧tv网页版，你可能想先知道的几件事</h2>
+        </div>
+        <p>韩剧tv网页版本质上是一个在浏览器里使用的韩剧观看入口。它不需要安装客户端，打开网址就能看到剧集列表，对临时想找一部剧、或者用别人电脑看剧的人来说比较方便。它的内容组织方式通常以剧集为单位，一部剧对应一个页面，页面里再列出分集。</p>
+        <p>和手机应用相比，网页版在屏幕尺寸上有优势。电脑上播放时画面更大，配合分类列表浏览也更直观；手机浏览器同样能打开韩剧tv网页版，但建议横屏观看，并把字号调大一些，避免误触。如果网络不稳定，网页播放的缓冲表现往往比客户端更敏感，这时可以降低清晰度试试。</p>
+        <h3>内容范围与更新节奏</h3>
+        <p>韩剧tv网页版收录的剧集以韩剧为主，通常覆盖爱情、悬疑、家庭、古装等常见类型，也会包含部分综艺和短剧。新剧上线时间取决于站点自身的更新安排，不是所有剧都会同步出现。因此看到某部剧在别处有讨论、而韩剧tv网页版上暂时搜不到，属于正常情况，可以过几天再查。</p>
+        <h3>浏览时值得注意的细节</h3>
+        <p>网页版的剧集页一般会标注年份、集数和简介，追长剧前先看集数，能避免追到一半发现篇幅过长。悬疑类剧集尽量按顺序观看，跳集容易丢失线索；家庭类和治愈类则相对宽松。另外，网页入口有时会变化，遇到打不开的情况，先确认地址是否输入正确，再检查网络环境。</p>
+        <h3>关于账号与播放设置</h3>
+        <p>是否需要注册登录，各家站点做法不同，韩剧tv网页版也可能随时间调整。若页面提示登录，按提示操作即可；若可以直接播放，则无需额外步骤。清晰度、字幕语言这类选项通常在播放器内切换，找不到时可以先点开播放器右下角的设置按钮查看。</p>
+      </article>
+      <aside class="aside-box">
+        <h3>追剧小提示</h3>
+        <p>把常看的剧集页收藏起来，比每次从首页重新找要快得多。韩剧tv网页版的分集列表通常在同一页面内，收藏剧集页就能直接跳到最新一集。</p>
+        <ul>
+          <li>先看书签，再搜剧名</li>
+          <li>长剧先确认总集数</li>
+          <li>悬疑剧尽量不倍速</li>
+          <li>网络差时降低清晰度</li>
+        </ul>
+        <a class="btn" href="#playlist">回到片单</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">常见问题</p>
+        <h2>使用韩剧tv网页版时的常见疑问</h2>
+        <p>下面几个问题在初次接触韩剧tv网页版时出现频率较高，答案基于网页观看的一般情况，具体以站点实际页面为准。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>韩剧tv网页版需要下载安装吗？</summary>
+          <p>不需要。韩剧tv网页版是通过浏览器访问的，打开网址即可浏览剧集列表和播放页面。是否提供独立客户端属于另一件事，网页版本身不以安装为前提。</p>
+        </details>
+        <details>
+          <summary>手机上能用韩剧tv网页版吗？</summary>
+          <p>可以。手机浏览器能正常打开韩剧tv网页版，页面会按屏幕宽度调整。观看时建议横屏，网络较弱时先降低清晰度，减少卡顿。</p>
+        </details>
+        <details>
+          <summary>为什么有的剧在韩剧tv网页版上搜不到？</summary>
+          <p>站点的收录范围与更新节奏由其自身安排决定，部分剧集可能尚未上线或已下线。可以换用剧名全称、主演名再搜一次，或者过几天重新查看。</p>
+        </details>
+        <details>
+          <summary>网页版播放卡顿怎么办？</summary>
+          <p>先检查网络是否稳定，再尝试在播放器内切换较低清晰度；关闭同一网络下的其他大流量任务也有帮助。如果只有某一部剧卡顿，可能是该片源本身的问题。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下载 -->
+  <section id="download" style="padding-top:0">
+    <div class="wrap">
+      <div class="download-band">
+        <div>
+          <h2>韩剧tv网页版 · 客户端下载</h2>
+          <p>习惯在固定设备上追剧的用户，可以选择安装客户端。下载入口将在此处提供，当前页面暂未挂载安装包地址，点击不会触发下载。</p>
+        </div>
+        <a class="btn btn-disabled" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#1d2a45"/>
+            <rect x="11" y="18" width="42" height="28" rx="5" fill="none" stroke="#ff5c8a" stroke-width="4"/>
+            <path d="M27 25l14 7-14 7z" fill="#f2b94b"/>
+          </svg>
+          <span>韩剧tv网页版</span>
+        </div>
+        <p style="margin:0;max-width:22em;color:#8b98ad;">一个围绕韩剧tv网页版的使用导航页，整理分类入口、观看方式与常见问题。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#categories">剧集分类</a></li>
+          <li><a href="#playlist">热播片单</a></li>
+          <li><a href="#howto">观看方式</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>相关内容</h4>
+        <ul>
+          <li><a href="#top">回到顶部</a></li>
+          <li><a href="#download">客户端下载</a></li>
+          <li><a href="#playlist">按类型筛选</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>韩剧tv网页版 · 内容以站点实际页面为准</span>
+      <span>本站为使用导航页，不存储任何视频文件</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var chips = document.querySelectorAll('.chip');
+    var cards = document.querySelectorAll('#cards .card');
+    var empty = document.getElementById('emptyTip');
+    chips.forEach(function(chip){
+      chip.addEventListener('click', function(){
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        chip.classList.add('active');
+        var f = chip.getAttribute('data-filter');
+        var shown = 0;
+        cards.forEach(function(card){
+          var match = (f === 'all') || (card.getAttribute('data-cat') === f);
+          card.style.display = match ? 'flex' : 'none';
+          if(match) shown++;
+        });
+        empty.style.display = shown === 0 ? 'block' : 'none';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
