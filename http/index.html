@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTTPSrrsp.app-httpsrrsp.app官网入口_HTTPSrrsp.app下载与使用入口</title>
+<meta name="description" content="HTTPSrrsp.app 独立首页，说明这一域名的访问入口、下载说明、页面能力与常见使用场景，帮助访客快速找到 HTTPSrrsp.app 的官方入口与下载方式。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1020'/%3E%3Cpath d='M18 34l8-14 6 12 6-12 8 14' fill='none' stroke='%2345e3b6' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='46' r='4' fill='%2345e3b6'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#070b16;
+  --bg2:#0d1424;
+  --panel:#111a2e;
+  --line:rgba(120,150,200,.18);
+  --txt:#e6edf8;
+  --muted:#93a3bd;
+  --acc:#45e3b6;
+  --acc2:#5b8dff;
+  --warm:#ffb457;
+  --radius:16px;
+  --maxw:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 520px at 82% -8%, rgba(91,141,255,.20), transparent 62%),
+    radial-gradient(760px 460px at 8% 4%, rgba(69,227,182,.14), transparent 60%),
+    var(--bg);
+  color:var(--txt);
+  font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--acc);font-weight:700;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--acc);border-radius:2px;display:block}
+
+/* ===== 头部 ===== */
+header.site{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(7,11,22,.78);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:14px 0;
+}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand svg{flex:0 0 auto}
+.brand .logo-text{
+  font-weight:800;font-size:16.5px;letter-spacing:.01em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  background:linear-gradient(92deg,#ffffff,#9ff3d8 60%,#7fa9ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.nav-links{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nav-links a{
+  font-size:14px;color:var(--muted);padding:7px 12px;border-radius:9px;
+  transition:.2s;
+}
+.nav-links a:hover{color:var(--txt);background:rgba(120,150,200,.12)}
+.nav-cta{
+  font-size:14px;font-weight:700;color:#04140f;
+  background:linear-gradient(135deg,var(--acc),#79f0cd);
+  padding:9px 16px;border-radius:10px;white-space:nowrap;
+  box-shadow:0 8px 22px -10px rgba(69,227,182,.8);
+}
+.nav-cta:hover{filter:brightness(1.06)}
+
+/* ===== 首屏 ===== */
+.hero{padding:64px 0 30px;position:relative;overflow:hidden}
+.hero-grid{
+  display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center;
+}
+h1{
+  font-size:clamp(30px,4.4vw,50px);
+  line-height:1.16;margin:16px 0 18px;
+  letter-spacing:-.015em;font-weight:800;
+  word-break:break-word;
+}
+h1 .hl{
+  background:linear-gradient(96deg,#7cffd9,#5b8dff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.lede{font-size:16.5px;color:var(--muted);max-width:52ch;margin:0 0 26px}
+.lede strong{color:var(--txt);font-weight:600}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:15px;font-weight:700;padding:13px 24px;border-radius:12px;
+  border:1px solid transparent;transition:.22s;cursor:pointer;
+}
+.btn-main{
+  background:linear-gradient(135deg,var(--acc),#6ff0c9);color:#04140f;
+  box-shadow:0 14px 34px -14px rgba(69,227,182,.9);
+}
+.btn-main:hover{transform:translateY(-2px)}
+.btn-ghost{
+  border-color:var(--line);color:var(--txt);background:rgba(120,150,200,.07);
+}
+.btn-ghost:hover{border-color:rgba(69,227,182,.5);background:rgba(69,227,182,.1)}
+.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:none}
+.hero-note{font-size:13px;color:#6f8099;margin-top:14px}
+
+/* 首屏视觉卡 */
+.hero-visual{position:relative}
+.visual-card{
+  background:linear-gradient(160deg,rgba(23,34,56,.95),rgba(11,17,30,.95));
+  border:1px solid var(--line);border-radius:22px;padding:22px;
+  box-shadow:0 34px 70px -34px rgba(0,0,0,.9);
+}
+.visual-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.dot-row{display:flex;gap:6px}
+.dot{width:9px;height:9px;border-radius:50%;background:#2b3a55}
+.dot.g{background:var(--acc)}
+.dot.b{background:var(--acc2)}
+.dot.y{background:var(--warm)}
+.visual-tag{font-size:11.5px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.visual-body{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mini{
+  background:rgba(120,150,200,.08);border:1px solid var(--line);
+  border-radius:12px;padding:14px 12px;text-align:center;
+}
+.mini b{display:block;font-size:19px;color:var(--acc);letter-spacing:-.02em}
+.mini span{font-size:11.5px;color:var(--muted)}
+.visual-line{
+  margin-top:16px;height:9px;border-radius:6px;
+  background:linear-gradient(90deg,rgba(69,227,182,.7),rgba(91,141,255,.45),transparent);
+}
+.visual-line.s2{width:72%;margin-top:9px;background:linear-gradient(90deg,rgba(91,141,255,.6),transparent)}
+
+/* ===== 通用区块 ===== */
+section.block{padding:56px 0}
+.sec-head{max-width:64ch;margin-bottom:30px}
+.sec-head h2{
+  font-size:clamp(21px,2.6vw,29px);margin:10px 0 8px;font-weight:800;letter-spacing:-.01em;
+}
+.sec-head p{margin:0;color:var(--muted);font-size:15px}
+.divider{height:1px;background:var(--line);margin:0}
+
+/* 入口卡 */
+.entry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  background:linear-gradient(170deg,rgba(19,28,46,.9),rgba(11,17,30,.9));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 22px;transition:.24s;
+}
+.card:hover{border-color:rgba(69,227,182,.42);transform:translateY(-3px)}
+.card .ico{
+  width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(69,227,182,.12);border:1px solid rgba(69,227,182,.22);margin-bottom:16px;
+}
+.card h3{font-size:16.5px;margin:0 0 8px;font-weight:700}
+.card p{margin:0;font-size:14px;color:var(--muted);line-height:1.72}
+.card .go{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--acc)}
+.card .go:hover{text-decoration:underline}
+
+/* 关于 + 侧栏 */
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:38px;align-items:start}
+.about-grid p{color:#c3cfe2;font-size:15.2px;margin:0 0 16px}
+.about-grid p:last-child{margin-bottom:0}
+.fact-list{
+  background:rgba(120,150,200,.06);border:1px solid var(--line);
+  border-radius:var(--radius);padding:22px;
+}
+.fact-list h4{margin:0 0 14px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.fact-list ul{list-style:none;margin:0;padding:0}
+.fact-list li{
+  display:flex;gap:10px;font-size:14px;color:#c3cfe2;padding:10px 0;
+  border-top:1px dashed rgba(120,150,200,.16);
+}
+.fact-list li:first-child{border-top:0;padding-top:0}
+.fact-list li::before{content:"◆";color:var(--acc);font-size:10px;line-height:1.9}
+
+/* 使用路径 */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:st}
+.step{
+  position:relative;background:rgba(120,150,200,.055);
+  border:1px solid var(--line);border-radius:14px;padding:22px 18px 20px;
+}
+.step::before{
+  counter-increment:st;content:"0" counter(st);
+  font-size:13px;font-weight:800;color:var(--acc);letter-spacing:.08em;
+  display:block;margin-bottom:12px;
+}
+.step h4{font-size:15px;margin:0 0 7px;font-weight:700}
+.step p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.7}
+
+/* 下载区 */
+.dl-band{
+  background:linear-gradient(120deg,rgba(69,227,182,.1),rgba(91,141,255,.09));
+  border:1px solid rgba(69,227,182,.24);border-radius:20px;
+  padding:34px;display:grid;grid-template-columns:1.4fr auto;gap:26px;align-items:center;
+}
+.dl-band h3{margin:0 0 9px;font-size:21px;font-weight:800}
+.dl-band p{margin:0;font-size:14.4px;color:var(--muted);max-width:56ch}
+.dl-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:12.8px;color:#8296b2}
+.dl-meta span{display:inline-flex;align-items:center;gap:6px}
+.dl-meta i{width:6px;height:6px;border-radius:50%;background:var(--acc);display:block}
+
+/* 问答 */
+.faq{display:grid;gap:12px}
+details{
+  background:rgba(120,150,200,.055);border:1px solid var(--line);
+  border-radius:12px;padding:0 20px;transition:.2s;
+}
+details[open]{border-color:rgba(69,227,182,.35);background:rgba(69,227,182,.055)}
+summary{
+  cursor:pointer;list-style:none;padding:16px 0;font-size:15px;font-weight:650;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--acc);font-size:19px;font-weight:400;flex:0 0 auto}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 17px;font-size:14.3px;color:var(--muted);line-height:1.78}
+
+/* 页尾 */
+footer.site{
+  border-top:1px solid var(--line);padding:38px 0 30px;
+  background:rgba(6,9,18,.7);
+}
+.foot-grid{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{max-width:340px}
+.foot-brand .logo-text{font-size:15px;font-weight:800;color:var(--txt);display:block;margin-bottom:10px}
+.foot-brand p{margin:0;font-size:13.2px;color:#7286a0;line-height:1.7}
+.foot-links{display:flex;gap:44px;flex-wrap:wrap}
+.foot-col h5{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#7d90aa;margin:0 0 12px;font-weight:700}
+.foot-col a{display:block;font-size:13.5px;color:#a9b8cd;padding:4px 0}
+.foot-col a:hover{color:var(--acc)}
+.copyright{
+  margin-top:30px;padding-top:20px;border-top:1px solid rgba(120,150,200,.12);
+  font-size:12.4px;color:#65778f;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+/* 响应式 */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .entry-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:26px}
+  .steps{grid-template-columns:1fr 1fr}
+  .dl-band{grid-template-columns:1fr;padding:26px}
+}
+@media (max-width:720px){
+  .nav{padding:11px 0;gap:12px}
+  .nav-links{display:none}
+  .hero{padding:40px 0 20px}
+  .lede{font-size:15.4px}
+  .entry-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  section.block{padding:40px 0}
+  .btn{padding:12px 20px;font-size:14.4px}
+  .visual-body{grid-template-columns:repeat(3,1fr)}
+  .foot-links{gap:30px}
+}
+@media (max-width:400px){
+  .brand .logo-text{font-size:14.5px}
+  .wrap{padding:0 16px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="HTTPSrrsp.app 首页">
+      <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0e1729"/>
+        <path d="M17 36l8-15 7 13 7-13 8 15" fill="none" stroke="#45e3b6" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="32" cy="48" r="4" fill="#5b8dff"/>
+      </svg>
+      <span class="logo-text">HTTPSrrsp.app</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#entry">入口导航</a>
+      <a href="#about">站点说明</a>
+      <a href="#steps">使用路径</a>
+      <a href="#download">下载</a>
+      <a href="#faq">常见问答</a>
+    </nav>
+    <a class="nav-cta" href="#entry">进入入口</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">独立域名 · 访问入口首页</span>
+        <h1><span class="hl">HTTPSrrsp.app</span></h1>
+        <p class="lede">
+          HTTPSrrsp.app 是一个以域名直接访问的页面入口。本页把 <strong>访问路径、下载方式与使用要点</strong> 集中在一处，
+          让第一次到访的人不必反复搜索，也能在几步之内找到自己在 HTTPSrrsp.app 上要做的事。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-main" href="#entry">
+            查看入口
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#download">下载说明</a>
+        </div>
+        <p class="hero-note">页面内容围绕 HTTPSrrsp.app 的实际用途组织，不涉及与主题无关的扩展承诺。</p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-card">
+          <div class="visual-head">
+            <div class="dot-row"><span class="dot g"></span><span class="dot b"></span><span class="dot y"></span></div>
+            <span class="visual-tag">access panel</span>
+          </div>
+          <div class="visual-body">
+            <div class="mini"><b>入口</b><span>直接访问</span></div>
+            <div class="mini"><b>下载</b><span>说明页</span></div>
+            <div class="mini"><b>问答</b><span>常见问题</span></div>
+          </div>
+          <div class="visual-line"></div>
+          <div class="visual-line s2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- 入口导航 -->
+  <section class="block" id="entry">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">访问入口</span>
+        <h2>在 HTTPSrrsp.app 上先做什么</h2>
+        <p>不同访客的目的并不相同。下面三类入口对应最常见的三种访问意图，可直接跳到本页对应位置。</p>
+      </div>
+      <div class="entry-grid">
+        <article class="card">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#45e3b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></svg>
+          </div>
+          <h3>直接打开主域名</h3>
+          <p>在浏览器地址栏输入 HTTPSrrsp.app 即可访问，无需记忆复杂路径。这是进入该站点最直接的方式，也是本页所有说明的前提。</p>
+          <a class="go" href="#about">了解站点定位 →</a>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#45e3b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 11l5 5 5-5"/><path d="M4 19h16"/></svg>
+          </div>
+          <h3>查看下载说明</h3>
+          <p>需要本地版本时，先阅读 HTTPSrrsp.app 的下载说明，确认当前可用的获取方式与注意事项，再执行下载操作。</p>
+          <a class="go" href="#download">前往下载区 →</a>
+        </article>
+        <article class="card">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#45e3b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>
+          </div>
+          <h3>解决访问疑问</h3>
+          <p>打不开、找不到入口、不确定版本，都可以在常见问答中找到对应说明，减少在多个页面之间来回跳转。</p>
+          <a class="go" href="#faq">查看问答 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 站点说明 -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">站点说明</span>
+        <h2>HTTPSrrsp.app 是什么，适合谁访问</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>
+            HTTPSrrsp.app 以 .app 顶级域名出现，域名本身即是访问地址。把它单独列成首页的原因很简单：
+            很多人在搜索引擎里看到的只是零散链接，却不容易判断哪一个才是 HTTPSrrsp.app 的正规入口。
+            本页因此只做一件事——把入口、下载与使用说明放在同一个页面上。
+          </p>
+          <p>
+            对普通访客来说，最需要的是“打开就能用”。因此本页首屏只保留一个主按钮，指向页面内的入口导航区，
+            不做多余跳转。对需要下载的访客，下载区单独说明当前状态，避免在信息不完整时贸然操作。
+          </p>
+          <p>
+            需要说明的是，本页是围绕 HTTPSrrsp.app 这一域名组织的说明型首页，内容范围限于访问方式与页面已有的功能描述。
+            若后续 HTTPSrrsp.app 的能力或入口发生变化，页面文字应与实际情况保持一致，而不会提前承诺尚未提供的内容。
+          </p>
+        </div>
+        <aside class="fact-list">
+          <h4>页面要点</h4>
+          <ul>
+            <li>域名即入口，地址栏直接输入即可</li>
+            <li>.app 域名在主流浏览器中默认要求安全连接</li>
+            <li>下载入口按说明页流程处理，状态清晰</li>
+            <li>问答区覆盖访问、版本与常见报错</li>
+            <li>全部说明集中在本页，减少多点跳转</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- 使用路径 -->
+  <section class="block" id="steps">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">使用路径</span>
+        <h2>从打开到用上 HTTPSrrsp.app 的四步</h2>
+        <p>按顺序执行即可，每一步只解决一个问题，避免来回确认。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <h4>确认访问地址</h4>
+          <p>在地址栏完整输入 HTTPSrrsp.app，注意不要遗漏末尾的 .app，也不要多打空格或前缀。</p>
+        </div>
+        <div class="step">
+          <h4>检查连接状态</h4>
+          <p>浏览器显示安全锁图标即表示连接正常；若出现警告页，先核对地址是否被改动再继续。</p>
+        </div>
+        <div class="step">
+          <h4>选择目标入口</h4>
+          <p>根据目的进入对应区域：直接使用选主入口，需要本地版本则先看下载说明。</p>
+        </div>
+        <div class="step">
+          <h4>遇到问题查问答</h4>
+          <p>打不开或提示异常时，先到常见问答对照现象，多数情况能直接定位原因。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 下载 -->
+  <section class="block" id="download">
+    <div class="wrap">
+      <div class="dl-band">
+        <div>
+          <h3>HTTPSrrsp.app 下载说明</h3>
+          <p>
+            下载区用于说明通过 HTTPSrrsp.app 获取本地版本的方式。当前下载地址仍在确认中，
+            按钮处于暂不可用状态，待正式地址发布后即可在此获取。在此之前，建议先使用网页入口访问。
+          </p>
+          <div class="dl-meta">
+            <span><i></i>状态：待发布</span>
+            <span><i></i>适用：桌面与移动浏览器</span>
+            <span><i></i>来源：以官方入口为准</span>
+          </div>
+        </div>
+        <div>
+          <a class="btn btn-main" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 问答 -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">常见问答</span>
+        <h2>关于 HTTPSrrsp.app 的高频疑问</h2>
+        <p>以下问题来自实际访问中最容易卡住的环节，答案只针对本页已说明的内容。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>HTTPSrrsp.app 打不开怎么办？</summary>
+          <p>先确认地址是否完整输入，包括末尾的 .app。其次检查网络是否正常、浏览器是否拦截了该连接。若提示证书或安全警告，不要跳过警告继续访问，应核对地址拼写是否与 HTTPSrrsp.app 完全一致，排除被引导到相似域名的可能。</p>
+        </details>
+        <details>
+          <summary>为什么下载按钮现在不能点？</summary>
+          <p>HTTPSrrsp.app 的下载地址尚在确认中，按钮已按暂不可用状态处理，点击不会产生跳转。这是为了避免把访客引向未经确认的来源。正式地址发布后，按钮会恢复可用，届时可直接在下载区获取。</p>
+        </details>
+        <details>
+          <summary>访问 HTTPSrrsp.app 需要注册账号吗？</summary>
+          <p>本页只描述访问入口与下载说明，不涉及账号体系的具体规则。是否需要账号取决于 HTTPSrrsp.app 站内实际提供的能力，建议以站内提示为准，本页不做额外承诺。</p>
+        </details>
+        <details>
+          <summary>手机上能正常访问这个域名吗？</summary>
+          <p>可以。域名访问与设备类型无关，手机浏览器输入 HTTPSrrsp.app 同样能打开。本页在移动端重新排布了导航、字号与卡片，保证小屏下首屏优先看到主题文字与主入口按钮。</p>
+        </details>
+        <details>
+          <summary>本页与 HTTPSrrsp.app 是什么关系？</summary>
+          <p>本页是围绕 HTTPSrrsp.app 这一域名组织的独立说明型首页，用于集中呈现入口、下载与使用要点。页面出现的名称、状态与功能描述均以当前可用信息为限，不扩展到未确认的范围。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 收束 -->
+  <section class="block" style="padding-top:8px">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:0;max-width:70ch">
+        <span class="eyebrow">下一步</span>
+        <h2>回到入口，开始使用 HTTPSrrsp.app</h2>
+        <p>如果已经清楚自己的目的，直接回到入口导航选择对应区域即可；如果仍有疑问，问答区的五条说明覆盖了最常见的几种情况。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-text">HTTPSrrsp.app</span>
+        <p>围绕 HTTPSrrsp.app 域名组织的说明型首页，集中呈现访问入口、下载说明与常见问答，帮助访客快速找到要做的事。</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>页面导航</h5>
+          <a href="#entry">入口导航</a>
+          <a href="#about">站点说明</a>
+          <a href="#steps">使用路径</a>
+        </div>
+        <div class="foot-col">
+          <h5>更多</h5>
+          <a href="#download">下载说明</a>
+          <a href="#faq">常见问答</a>
+          <a href="#top">返回顶部</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2025 HTTPSrrsp.app 说明页</span>
+      <span>页面内容以当前可用信息为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
