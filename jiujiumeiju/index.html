@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九九美剧-九九美剧在线观看_美剧剧集推荐与追剧片单</title>
+<meta name="description" content="九九美剧首页，围绕美剧在线观看与追剧需求，提供剧集分类浏览、热门剧集推荐、追剧片单与更新记录，帮助观众快速找到想看的美剧。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131826'/%3E%3Crect x='12' y='16' width='28' height='32' rx='4' fill='%23f5b83d'/%3E%3Cpath d='M40 24v16l12-8z' fill='%23e94f4f'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0e1119;
+  --panel:#161b27;
+  --panel-2:#1c2331;
+  --line:#2a3244;
+  --text:#e8ecf4;
+  --muted:#9aa4b8;
+  --gold:#f5b83d;
+  --red:#e94f4f;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
+
+/* 页头 */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(14,17,25,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;gap:28px;
+  height:68px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo-mark{width:34px;height:34px;flex-shrink:0;}
+.logo-text{
+  font-size:19px;font-weight:800;letter-spacing:1px;
+  color:var(--gold);white-space:nowrap;
+}
+.nav{display:flex;gap:22px;margin-left:auto;flex-wrap:wrap;}
+.nav a{
+  font-size:15px;color:var(--muted);padding:6px 0;
+  border-bottom:2px solid transparent;transition:.2s;
+}
+.nav a:hover{color:var(--text);border-bottom-color:var(--gold);}
+.header-cta{
+  font-size:14px;font-weight:600;color:#131826;
+  background:var(--gold);padding:8px 18px;border-radius:999px;
+  white-space:nowrap;transition:.2s;
+}
+.header-cta:hover{background:#ffcb5c;}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--line);
+  background:radial-gradient(circle at 82% 18%,rgba(233,79,79,.20),transparent 52%),
+             radial-gradient(circle at 12% 88%,rgba(245,184,61,.14),transparent 55%),
+             var(--bg);
+}
+.hero-inner{
+  display:grid;grid-template-columns:1.15fr .85fr;
+  gap:48px;align-items:center;
+  padding:72px 0 68px;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--gold);
+  border:1px solid rgba(245,184,61,.4);
+  padding:4px 12px;border-radius:999px;
+  margin-bottom:20px;
+}
+.hero-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);}
+h1{
+  font-size:clamp(34px,5vw,54px);
+  line-height:1.18;font-weight:900;letter-spacing:2px;
+  margin-bottom:20px;
+}
+h1 .hl{color:var(--gold);}
+.hero-lead{
+  font-size:16px;color:var(--muted);max-width:520px;
+  margin-bottom:30px;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:700;
+  padding:12px 26px;border-radius:999px;transition:.2s;
+}
+.btn-primary{background:var(--red);color:#fff;}
+.btn-primary:hover{background:#ff6363;}
+.btn-ghost{border:1px solid var(--line);color:var(--text);}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{
+  display:flex;gap:34px;margin-top:38px;flex-wrap:wrap;
+}
+.stat-num{font-size:24px;font-weight:800;color:var(--gold);line-height:1.2;}
+.stat-label{font-size:13px;color:var(--muted);}
+.hero-art{
+  display:flex;justify-content:center;align-items:center;
+}
+.hero-art svg{width:100%;max-width:360px;height:auto;filter:drop-shadow(0 18px 40px rgba(0,0,0,.5));}
+
+/* 通用区块 */
+section{padding:64px 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+.sec-head{margin-bottom:34px;max-width:760px;}
+.sec-kicker{
+  font-size:13px;font-weight:700;letter-spacing:2px;
+  color:var(--red);text-transform:uppercase;margin-bottom:10px;
+}
+h2{
+  font-size:clamp(23px,3vw,30px);font-weight:800;
+  line-height:1.35;margin-bottom:12px;
+}
+.sec-desc{font-size:15px;color:var(--muted);}
+
+/* 分类浏览 */
+.cat-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+}
+.cat-card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);padding:22px 20px;
+  transition:.2s;
+}
+.cat-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+.cat-icon{width:32px;height:32px;margin-bottom:14px;}
+.cat-card h3{font-size:16px;font-weight:700;margin-bottom:6px;}
+.cat-card p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* 剧集卡片 */
+.show-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.show-card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;transition:.2s;
+}
+.show-card:hover{border-color:#3d4760;transform:translateY(-3px);}
+.poster{
+  position:relative;aspect-ratio:16/9;overflow:hidden;
+  background:var(--panel-2);
+}
+.poster svg{width:100%;height:100%;}
+.badge{
+  position:absolute;top:12px;left:12px;
+  font-size:12px;font-weight:700;color:#131826;
+  background:var(--gold);padding:2px 10px;border-radius:999px;
+}
+.show-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;}
+.show-body h3{font-size:17px;font-weight:700;margin-bottom:6px;}
+.show-meta{font-size:12px;color:var(--muted);margin-bottom:10px;}
+.show-body p{font-size:14px;color:var(--muted);flex:1;line-height:1.7;}
+.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.tag{
+  font-size:12px;color:var(--muted);
+  border:1px solid var(--line);padding:2px 9px;border-radius:999px;
+}
+
+/* 筛选 */
+.filter-bar{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;
+}
+.filter-btn{
+  font-size:14px;font-weight:600;color:var(--muted);
+  background:var(--panel);border:1px solid var(--line);
+  padding:7px 18px;border-radius:999px;cursor:pointer;
+  font-family:inherit;transition:.2s;
+}
+.filter-btn:hover{color:var(--text);border-color:#3d4760;}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#131826;}
+.poster-list{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.list-item{
+  display:flex;gap:14px;align-items:center;
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);padding:14px;
+}
+.list-item.hide{display:none;}
+.list-thumb{
+  width:64px;height:64px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:20px;color:#131826;
+}
+.list-thumb.a{background:var(--gold);}
+.list-thumb.b{background:#7fb2ff;}
+.list-thumb.c{background:#ff9f7f;}
+.list-thumb.d{background:#a7e0a7;}
+.list-item h4{font-size:15px;font-weight:700;margin-bottom:2px;}
+.list-item span{font-size:12px;color:var(--muted);}
+
+/* 追剧须知 */
+.tips{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start;
+}
+.tips-list{display:flex;flex-direction:column;gap:18px;}
+.tip{
+  display:flex;gap:16px;background:var(--panel);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;
+}
+.tip-num{
+  flex-shrink:0;width:32px;height:32px;border-radius:50%;
+  background:rgba(245,184,61,.14);color:var(--gold);
+  font-size:14px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.tip h3{font-size:16px;font-weight:700;margin-bottom:4px;}
+.tip p{font-size:14px;color:var(--muted);line-height:1.7;}
+.aside-card{
+  background:linear-gradient(160deg,#1c2331,#141924);
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;
+}
+.aside-card h3{font-size:18px;font-weight:800;margin-bottom:12px;}
+.aside-card p{font-size:14px;color:var(--muted);margin-bottom:20px;}
+.aside-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:24px;}
+.aside-list li{
+  font-size:14px;color:var(--muted);
+  padding-left:18px;position:relative;
+}
+.aside-list li::before{
+  content:"";position:absolute;left:0;top:10px;
+  width:6px;height:6px;border-radius:50%;background:var(--red);
+}
+.btn-disabled{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:700;color:#131826;
+  background:var(--gold);padding:10px 24px;border-radius:999px;
+  pointer-events:none;opacity:.85;
+}
+
+/* 页尾 */
+.site-footer{
+  background:#0a0d14;border-top:1px solid var(--line);
+  padding:48px 0 32px;
+}
+.footer-top{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;
+  padding-bottom:32px;border-bottom:1px solid var(--line);
+}
+.footer-brand .logo-text{font-size:18px;margin-bottom:12px;}
+.footer-brand p{font-size:14px;color:var(--muted);max-width:320px;}
+.footer-col h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px;}
+.footer-col a{
+  display:block;font-size:14px;color:var(--muted);margin-bottom:10px;transition:.2s;
+}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{
+  padding-top:24px;display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;font-size:13px;color:#6b7488;
+}
+
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:36px;padding:52px 0 48px;}
+  .hero-art{order:-1;max-width:260px;margin:0 auto;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);}
+  .show-grid{grid-template-columns:repeat(2,1fr);}
+  .poster-list{grid-template-columns:repeat(2,1fr);}
+  .tips{grid-template-columns:1fr;gap:28px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:28px;}
+  .footer-brand{grid-column:1/-1;}
+}
+@media (max-width:640px){
+  .header-inner{height:auto;padding:12px 0;flex-wrap:wrap;gap:12px;}
+  .nav{order:3;width:100%;margin-left:0;gap:16px;overflow-x:auto;padding-bottom:4px;}
+  .nav a{font-size:14px;white-space:nowrap;}
+  .header-cta{margin-left:auto;font-size:13px;padding:7px 14px;}
+  .cat-grid,.show-grid,.poster-list{grid-template-columns:1fr;}
+  section{padding:48px 0;}
+  .hero-stats{gap:24px;}
+  .footer-top{grid-template-columns:1fr;}
+  h1{letter-spacing:1px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo" aria-label="九九美剧首页">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#1c2331"/>
+        <rect x="12" y="16" width="28" height="32" rx="4" fill="#f5b83d"/>
+        <path d="M40 24v16l12-8z" fill="#e94f4f"/>
+      </svg>
+      <span class="logo-text">九九美剧</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#browse">分类浏览</a>
+      <a href="#picks">热门推荐</a>
+      <a href="#list">追剧清单</a>
+      <a href="#guide">观剧须知</a>
+    </nav>
+    <a href="#picks" class="header-cta">开始找剧</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="hero-tag">美剧在线观看 · 追剧片单</span>
+        <h1><span class="hl">九九美剧</span></h1>
+        <p class="hero-lead">九九美剧是一个围绕美剧观看与追剧需求组织内容的页面。这里按类型、热度与播出节奏划分剧集，帮助你先想清楚看什么，再决定从哪一部开始。</p>
+        <div class="hero-actions">
+          <a href="#picks" class="btn btn-primary">查看热门剧集</a>
+          <a href="#browse" class="btn btn-ghost">按类型浏览</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">6</div>
+            <div class="stat-label">剧集分类</div>
+          </div>
+          <div>
+            <div class="stat-num">9</div>
+            <div class="stat-label">精选剧集</div>
+          </div>
+          <div>
+            <div class="stat-num">3</div>
+            <div class="stat-label">追剧片单</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f5b83d"/>
+              <stop offset="1" stop-color="#e94f4f"/>
+            </linearGradient>
+          </defs>
+          <rect x="30" y="40" width="300" height="190" rx="16" fill="#1c2331" stroke="#2a3244" stroke-width="2"/>
+          <rect x="52" y="62" width="256" height="120" rx="10" fill="url(#scr)" opacity="0.9"/>
+          <path d="M160 100v64l52-32z" fill="#131826" opacity="0.85"/>
+          <rect x="52" y="196" width="120" height="10" rx="5" fill="#2a3244"/>
+          <rect x="52" y="214" width="76" height="8" rx="4" fill="#2a3244"/>
+          <rect x="150" y="248" width="60" height="8" rx="4" fill="#2a3244"/>
+          <circle cx="300" cy="248" r="18" fill="none" stroke="#f5b83d" stroke-width="3"/>
+          <circle cx="300" cy="248" r="6" fill="#f5b83d"/>
+          <path d="M60 258h40" stroke="#e94f4f" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分类浏览 -->
+  <section id="browse">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">分类浏览</div>
+        <h2>先按类型缩小范围，再挑一部开始</h2>
+        <p class="sec-desc">在九九美剧里，直接按题材找剧往往比翻榜单更快。下面六个方向覆盖了常见的美剧类型，每类都说明了适合什么样的观看状态。</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="#f5b83d" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>剧情长剧</h3>
+          <p>节奏偏慢、人物线索多，适合一次连看两到三集，慢慢跟进角色变化。</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="#e94f4f" stroke-width="1.8" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8z"/></svg>
+          <h3>悬疑犯罪</h3>
+          <p>以案件和反转推动情节，适合喜欢边看边推理的观众，单集信息量大。</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="#7fb2ff" stroke-width="1.8" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+          <h3>科幻奇幻</h3>
+          <p>世界观设定是核心看点，进入前最好先了解背景，观感会顺畅很多。</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="#a7e0a7" stroke-width="1.8" aria-hidden="true"><path d="M4 20c0-6 4-14 8-14s8 8 8 14"/><path d="M8 20c0-4 2-9 4-9s4 5 4 9"/></svg>
+          <h3>轻喜剧</h3>
+          <p>单集二十分钟上下，剧情压力小，适合下班后或吃饭时随手放一集。</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="#ff9f7f" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/></svg>
+          <h3>都市情感</h3>
+          <p>围绕关系与生活展开，人物情绪细腻，适合喜欢跟着角色走心的观众。</p>
+        </div>
+        <div class="cat-card">
+          <svg class="cat-icon" viewBox="0 0 24 24" fill="none" stroke="#c9a7ff" stroke-width="1.8" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
+          <h3>迷你短剧</h3>
+          <p>集数少、结构紧，一部看完基本不占太多时间，适合想快速完整体验的人。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门推荐 -->
+  <section id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">热门推荐</div>
+        <h2>值得放进片单的几部剧集</h2>
+        <p class="sec-desc">以下是九九美剧页面上重点展示的剧集条目，按类型标注了看点与适合的观看节奏。它们是选剧参考，不代表实时热播榜。</p>
+      </div>
+      <div class="show-grid">
+
+        <article class="show-card">
+          <div class="poster">
+            <span class="badge">剧情</span>
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="320" height="180" fill="#1c2331"/>
+              <circle cx="250" cy="52" r="34" fill="#f5b83d" opacity="0.35"/>
+              <path d="M0 150l90-60 70 44 60-40 100 56v30H0z" fill="#2a3244"/>
+              <rect x="26" y="30" width="70" height="8" rx="4" fill="#f5b83d" opacity="0.7"/>
+            </svg>
+          </div>
+          <div class="show-body">
+            <h3>长线群像剧</h3>
+            <div class="show-meta">多季连载 · 每集约 50 分钟</div>
+            <p>人物关系层层展开，前期铺垫较多，追到第二季后线索会逐渐收拢，适合有耐心连看的观众。</p>
+            <div class="tag-row"><span class="tag">人物群像</span><span class="tag">慢热</span></div>
+          </div>
+        </article>
+
+        <article class="show-card">
+          <div class="poster">
+            <span class="badge">悬疑</span>
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="320" height="180" fill="#1c2331"/>
+              <circle cx="150" cy="80" r="38" fill="none" stroke="#e94f4f" stroke-width="5"/>
+              <path d="M178 108l34 34" stroke="#e94f4f" stroke-width="8" stroke-linecap="round"/>
+              <rect x="30" y="140" width="90" height="8" rx="4" fill="#2a3244"/>
+            </svg>
+          </div>
+          <div class="show-body">
+            <h3>单元案件剧</h3>
+            <div class="show-meta">每集独立案件 · 少量主线</div>
+            <p>单集一个案件，结局相对完整，跳集观看影响不大，适合碎片时间随手点开一集。</p>
+            <div class="tag-row"><span class="tag">推理</span><span class="tag">单元结构</span></div>
+          </div>
+        </article>
+
+        <article class="show-card">
+          <div class="poster">
+            <span class="badge">科幻</span>
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="320" height="180" fill="#1c2331"/>
+              <circle cx="160" cy="90" r="52" fill="none" stroke="#7fb2ff" stroke-width="3"/>
+              <ellipse cx="160" cy="90" rx="78" ry="26" fill="none" stroke="#7fb2ff" stroke-width="3" opacity="0.6"/>
+              <circle cx="160" cy="90" r="16" fill="#7fb2ff" opacity="0.8"/>
+            </svg>
+          </div>
+          <div class="show-body">
+            <h3>设定向科幻剧</h3>
+            <div class="show-meta">季播 · 世界观庞大</div>
+            <p>开篇需要一点耐心理解规则设定，进入之后信息密度很高，建议按顺序从第一集看起。</p>
+            <div class="tag-row"><span class="tag">世界观</span><span class="tag">顺序观看</span></div>
+          </div>
+        </article>
+
+        <article class="show-card">
+          <div class="poster">
+            <span class="badge">喜剧</span>
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="320" height="180" fill="#1c2331"/>
+              <circle cx="120" cy="80" r="30" fill="#f5b83d" opacity="0.85"/>
+              <circle cx="200" cy="80" r="30" fill="#a7e0a7" opacity="0.85"/>
+              <path d="M110 132q50 26 100 0" stroke="#e94f4f" stroke-width="6" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="show-body">
+            <h3>情景轻喜剧</h3>
+            <div class="show-meta">每集约 22 分钟</div>
+            <p>台词密度高、场景集中，单集笑点独立，适合吃饭或休息时看一集放松一下。</p>
+            <div class="tag-row"><span class="tag">轻松</span><span class="tag">单集独立</span></div>
+          </div>
+        </article>
+
+        <article class="show-card">
+          <div class="poster">
+            <span class="badge">情感</span>
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="320" height="180" fill="#1c2331"/>
+              <path d="M160 140s-52-32-52-66a28 28 0 0152-16 28 28 0 0152 16c0 34-52 66-52 66z" fill="#ff9f7f" opacity="0.85"/>
+              <rect x="36" y="34" width="56" height="7" rx="3.5" fill="#2a3244"/>
+            </svg>
+          </div>
+          <div class="show-body">
+            <h3>都市关系剧</h3>
+            <div class="show-meta">限定季 · 每集约 45 分钟</div>
+            <p>以几组人物关系为主线，情绪推进细腻，适合想跟着角色慢慢体会的观众。</p>
+            <div class="tag-row"><span class="tag">情感</span><span class="tag">限定季</span></div>
+          </div>
+        </article>
+
+        <article class="show-card">
+          <div class="poster">
+            <span class="badge">短剧</span>
+            <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="320" height="180" fill="#1c2331"/>
+              <rect x="70" y="46" width="180" height="88" rx="10" fill="none" stroke="#c9a7ff" stroke-width="4"/>
+              <path d="M148 72v36l32-18z" fill="#c9a7ff"/>
+            </svg>
+          </div>
+          <div class="show-body">
+            <h3>迷你限定剧</h3>
+            <div class="show-meta">共 6–8 集 · 一季完结</div>
+            <p>结构完整、结尾明确，一个周末基本能看完，适合不想长期追更的观众。</p>
+            <div class="tag-row"><span class="tag">短篇</span><span class="tag">一次看完</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 追剧清单 + 筛选 -->
+  <section id="list">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">追剧清单</div>
+        <h2>按状态筛选，管理正在看的剧</h2>
+        <p class="sec-desc">九九美剧把剧集按观看状态分成三组：正在追、待补看、已完结。点下面的按钮可以只留下对应状态的条目，方便安排下一部看什么。</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="按状态筛选追剧清单">
+        <button class="filter-btn active" data-filter="all" type="button">全部</button>
+        <button class="filter-btn" data-filter="watching" type="button">正在追</button>
+        <button class="filter-btn" data-filter="queued" type="button">待补看</button>
+        <button class="filter-btn" data-filter="done" type="button">已完结</button>
+      </div>
+      <div class="poster-list" id="posterList">
+        <div class="list-item" data-state="watching">
+          <div class="list-thumb a">追</div>
+          <div>
+            <h4>长线群像剧</h4>
+            <span>正在追 · 已看到第二季</span>
+          </div>
+        </div>
+        <div class="list-item" data-state="watching">
+          <div class="list-thumb b">追</div>
+          <div>
+            <h4>单元案件剧</h4>
+            <span>正在追 · 随意跳集</span>
+          </div>
+        </div>
+        <div class="list-item" data-state="queued">
+          <div class="list-thumb c">待</div>
+          <div>
+            <h4>设定向科幻剧</h4>
+            <span>待补看 · 需从头开始</span>
+          </div>
+        </div>
+        <div class="list-item" data-state="queued">
+          <div class="list-thumb d">待</div>
+          <div>
+            <h4>都市关系剧</h4>
+            <span>待补看 · 限定季</span>
+          </div>
+        </div>
+        <div class="list-item" data-state="done">
+          <div class="list-thumb a">完</div>
+          <div>
+            <h4>迷你限定剧</h4>
+            <span>已完结 · 一季看完</span>
+          </div>
+        </div>
+        <div class="list-item" data-state="done">
+          <div class="list-thumb b">完</div>
+          <div>
+            <h4>情景轻喜剧</h4>
+            <span>已完结 · 可重温</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 观剧须知 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">观剧须知</div>
+        <h2>看美剧前值得先确认的几件事</h2>
+        <p class="sec-desc">这些内容不涉及具体播放地址，只说明观看习惯与选择判断，帮助你在九九美剧上更高效地安排剧集。</p>
+      </div>
+      <div class="tips">
+        <div class="tips-list">
+          <div class="tip">
+            <div class="tip-num">01</div>
+            <div>
+              <h3>先确认是否按顺序观看</h3>
+              <p>单元结构的剧集可以跳集，但世界观庞大的剧集通常需要从第一集开始。顺序看错，后面的线索容易接不上。</p>
+            </div>
+          </div>
+          <div class="tip">
+            <div class="tip-num">02</div>
+            <div>
+              <h3>留意单集时长</h3>
+              <p>四十五分钟以上的剧集适合整段时间，二十分钟左右的轻喜剧更适合碎片时间。按自己的空闲长度选剧，比硬追更省心。</p>
+            </div>
+          </div>
+          <div class="tip">
+            <div class="tip-num">03</div>
+            <div>
+              <h3>区分连载与限定季</h3>
+              <p>限定季通常一季结束故事完整，连载剧则会跨多季推进。想快速看完的观众可以优先看限定季条目。</p>
+            </div>
+          </div>
+          <div class="tip">
+            <div class="tip-num">04</div>
+            <div>
+              <h3>用状态清单管理进度</h3>
+              <p>把剧分成正在追、待补看、已完结三组，避免同时开太多部。清单里的条目可以随观看进度移动。</p>
+            </div>
+          </div>
+        </div>
+        <aside class="aside-card">
+          <h3>把片单存下来</h3>
+          <p>整理好的追剧清单可以留作个人参考，下次打开九九美剧时按状态继续安排。当前下载入口尚未开放。</p>
+          <ul class="aside-list">
+            <li>按状态归类的剧集条目</li>
+            <li>类型与观看节奏标注</li>
+            <li>适合整段或碎片时间的区分</li>
+          </ul>
+          <a href="#" class="btn-disabled" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载片单</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-text">九九美剧</div>
+        <p>围绕美剧在线观看与追剧需求组织内容的主题首页。分类、推荐与清单均为选剧参考，具体以实际观看安排为准。</p>
+      </div>
+      <div class="footer-col">
+        <h4>页面导航</h4>
+        <a href="#browse">分类浏览</a>
+        <a href="#picks">热门推荐</a>
+        <a href="#list">追剧清单</a>
+        <a href="#guide">观剧须知</a>
+      </div>
+      <div class="footer-col">
+        <h4>按类型找剧</h4>
+        <a href="#browse">剧情长剧</a>
+        <a href="#browse">悬疑犯罪</a>
+        <a href="#browse">科幻奇幻</a>
+        <a href="#browse">轻喜剧</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>九九美剧 · 美剧剧集分类与追剧片单</span>
+      <span>内容为选剧参考，不构成播放承诺</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.filter-btn');
+  var items = document.querySelectorAll('#posterList .list-item');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-filter');
+      items.forEach(function(it){
+        var state = it.getAttribute('data-state');
+        if(f === 'all' || state === f){
+          it.classList.remove('hide');
+        } else {
+          it.classList.add('hide');
+        }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+            </html>
